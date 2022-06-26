@@ -10,11 +10,18 @@ import UIKit
 class NotesListViewController: UIViewController {
 
     @IBOutlet weak var notesTable: UITableView!
-    var notes: [String] = ["Albemarle", "Brandywine", "Chesapeake", "Ben", "Ivy", "Jordell", "Liam"]
+    @IBOutlet weak var numberOfNotes: UIBarButtonItem!
+    let notesListVM = NotesListViewModel()
+    var notes: [Note] = [Note]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        notes = notesListVM.getNotes()
+        // Space is given to place title in the middle of the screen
+        self.numberOfNotes.title = "\t    \(self.notes.count) Notes"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.sizeToFit()
     }
     
     @IBAction func selectPressed(_ sender: UIBarButtonItem) {
@@ -28,6 +35,12 @@ class NotesListViewController: UIViewController {
     }
     
     @IBAction func addNote(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "NewNote", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! NoteViewController
     }
     
 }
@@ -48,8 +61,9 @@ extension NotesListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotesListCell") as! NotesListCell
         
-        cell.noteTitle.text = notes[indexPath.row]
-        
+        cell.noteTitle.text = notes[indexPath.row].noteTitle
+        cell.noteDescription.text = notes[indexPath.row].noteDescription
+        cell.lastEditDate.text = self.notesListVM.convertDateToString(date: notes[indexPath.row].date)
         return cell
     }
     

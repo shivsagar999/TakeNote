@@ -46,4 +46,13 @@ class NotesListViewModel {
             print("Encountered error while saving error - \(error)")
         }
     }
+    
+    func convertDateToString(date: Date?) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        if let date = date {
+            return dateFormatter.string(from: date)
+        }
+        return ""
+    }
 }
