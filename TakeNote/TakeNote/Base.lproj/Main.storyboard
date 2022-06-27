@@ -123,7 +123,7 @@
                         <outlet property="notesTable" destination="gaM-iw-klZ" id="kdB-A5-NU3"/>
                         <outlet property="numberOfNotes" destination="QH1-Si-mmG" id="ekG-sm-gBr"/>
                         <segue destination="hzh-iZ-jqu" kind="show" identifier="NewNote" id="VFC-SS-CPb"/>
-                        <segue destination="hzh-iZ-jqu" kind="show" id="eWw-Q2-J7Y"/>
+                        <segue destination="hzh-iZ-jqu" kind="show" identifier="UpdateNote" id="eWw-Q2-J7Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -166,9 +166,17 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="fPm-gG-eGO">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="gdq-Vo-RVQ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="gdq-Vo-RVQ">
+                            <connections>
+                                <action selector="doneTapped:" destination="hzh-iZ-jqu" id="KSz-IL-zUZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="noteDescription" destination="W7a-XT-vl2" id="xFM-av-8o2"/>
+                        <outlet property="noteTitle" destination="jyV-y9-4Q8" id="Cnh-qU-11e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sow-pc-fbl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

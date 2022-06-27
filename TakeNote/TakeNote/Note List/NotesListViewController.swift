@@ -13,7 +13,7 @@ class NotesListViewController: UIViewController {
     @IBOutlet weak var numberOfNotes: UIBarButtonItem!
     let notesListVM = NotesListViewModel()
     var notes: [Note] = [Note]()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +36,16 @@ class NotesListViewController: UIViewController {
     
     @IBAction func addNote(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "NewNote", sender: self)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! NoteViewController
+        if segue.identifier == "NewNote" {
+            destinationVC.note = Note(context: notesListVM.context)
+        }
     }
     
 }
-
 
 // MARK: - TableView
 

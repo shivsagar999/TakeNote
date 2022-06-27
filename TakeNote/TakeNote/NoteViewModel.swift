@@ -18,4 +18,9 @@ class NoteViewModel {
             print("Could not save the changes \(error)")
         }
     }
+    
+    func rollBack() {
+        context.rollback()
+        print("Could not save note because of no data")
+    }
 }
