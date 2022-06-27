@@ -31,7 +31,7 @@ class NoteViewController: UIViewController {
             self.note.date = Date()
             noteVM.saveNote(note: note)
         }
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
 }
