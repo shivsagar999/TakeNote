@@ -21,7 +21,6 @@ class NoteViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
     @IBAction func doneTapped(_ sender: UIBarButtonItem) {
         if (self.noteTitle.text?.isEmpty ?? true) && (self.noteDescription.text?.isEmpty ?? true) {
             noteVM.rollBack()

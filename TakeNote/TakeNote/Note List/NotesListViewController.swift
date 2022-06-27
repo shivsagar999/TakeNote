@@ -10,27 +10,41 @@ import UIKit
 class NotesListViewController: UIViewController {
 
     @IBOutlet weak var notesTable: UITableView!
+    @IBOutlet weak var selectButton: UIBarButtonItem!
     @IBOutlet weak var numberOfNotes: UIBarButtonItem!
     let notesListVM = NotesListViewModel()
     var notes: [Note] = [Note]()
+    var selectedNotes: [Note] = [Note]()
+    
 //    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
         notes = notesListVM.getNotes()
         // Space is given to place title in the middle of the screen
-        self.numberOfNotes.title = "\t    \(self.notes.count) Notes"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.sizeToFit()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        notes = notesListVM.getNotes()
+        notesTable.reloadData()
+        self.numberOfNotes.title = "\t    \(self.notes.count) Notes"
+    }
+    
     
     @IBAction func selectPressed(_ sender: UIBarButtonItem) {
         if sender.title == "Select" {
             sender.title = "Delete"
             notesTable.allowsMultipleSelection = true
         } else if sender.title == "Delete" {
+            notesListVM.deleteNoteAtIndexes(notes: self.selectedNotes)
             sender.title = "Select"
+            self.selectedNotes = [Note]()
             notesTable.allowsMultipleSelection = false
+            self.notes = notesListVM.getNotes()
+            self.notesTable.reloadData()
+            self.numberOfNotes.title = "\t    \(self.notes.count) Notes"
         }
     }
     
@@ -42,6 +56,10 @@ class NotesListViewController: UIViewController {
         let destinationVC = segue.destination as! NoteViewController
         if segue.identifier == "NewNote" {
             destinationVC.note = Note(context: notesListVM.context)
+        } else if segue.identifier == "UpdateNote" {
+            destinationVC.note = Note(context: notesListVM.context)
+            destinationVC.note = self.selectedNotes[0]
+            self.selectedNotes = [Note]()
         }
     }
     
@@ -69,7 +87,10 @@ extension NotesListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        self.selectedNotes.append(notes[indexPath.row])
+        if self.selectButton.title == "Select" {
+            performSegue(withIdentifier: "UpdateNote", sender: self)
+        }
     }
 
 }

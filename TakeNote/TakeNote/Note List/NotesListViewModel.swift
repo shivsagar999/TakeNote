@@ -15,6 +15,10 @@ class NotesListViewModel {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     init() {
+        fetchNotes()
+    }
+    
+    func fetchNotes() {
         let fetchrequest: NSFetchRequest<Note> = Note.fetchRequest()
         do {
             notes = try context.fetch(fetchrequest)
@@ -24,6 +28,7 @@ class NotesListViewModel {
     }
     
     func getNotes() -> [Note] {
+        fetchNotes()
         return notes
     }
     
@@ -31,12 +36,12 @@ class NotesListViewModel {
         return notes[indexPath.row]
     }
     
-    func deleteNoteAtIndexes(indexPaths: [IndexPath]) {
-        for indexPath in indexPaths {
-            let note = notes[indexPath.row]
+    func deleteNoteAtIndexes(notes: [Note]) {
+        for note in notes {
             context.delete(note)
+            saveData()
         }
-        saveData()
+        
     }
     
     func saveData() {

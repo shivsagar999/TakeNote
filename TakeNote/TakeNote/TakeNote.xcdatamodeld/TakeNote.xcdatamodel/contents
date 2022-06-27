@@ -3,7 +3,7 @@
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="noteDescription" optional="YES" attributeType="String"/>
-        <attribute name="noteTitle" optional="YES" attributeType="String" defaultValueString="No"/>
+        <attribute name="noteTitle" optional="YES" attributeType="String" defaultValueString="No Note"/>
     </entity>
     <elements>
         <element name="Note" positionX="-63" positionY="-18" width="128" height="74"/>

@@ -122,6 +122,7 @@
                     <connections>
                         <outlet property="notesTable" destination="gaM-iw-klZ" id="kdB-A5-NU3"/>
                         <outlet property="numberOfNotes" destination="QH1-Si-mmG" id="ekG-sm-gBr"/>
+                        <outlet property="selectButton" destination="fvA-Ca-z2U" id="gxH-qY-cLL"/>
                         <segue destination="hzh-iZ-jqu" kind="show" identifier="NewNote" id="VFC-SS-CPb"/>
                         <segue destination="hzh-iZ-jqu" kind="show" identifier="UpdateNote" id="eWw-Q2-J7Y"/>
                     </connections>
