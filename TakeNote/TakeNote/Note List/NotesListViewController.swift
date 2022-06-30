@@ -27,8 +27,12 @@ class NotesListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        notes = notesListVM.getNotes()
-        notesTable.reloadData()
+        self.reloadTableView()
+    }
+    
+    func reloadTableView() {
+        self.notes = notesListVM.getNotes()
+        self.notesTable.reloadData()
         self.numberOfNotes.title = "\t    \(self.notes.count) Notes"
     }
     
@@ -42,9 +46,7 @@ class NotesListViewController: UIViewController {
             sender.title = "Select"
             self.selectedNotes = [Note]()
             notesTable.allowsMultipleSelection = false
-            self.notes = notesListVM.getNotes()
-            self.notesTable.reloadData()
-            self.numberOfNotes.title = "\t    \(self.notes.count) Notes"
+            self.reloadTableView()
         }
     }
     

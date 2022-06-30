@@ -35,7 +35,7 @@ class TakeNoteTests: XCTestCase {
     
     func testNotesListViewController_AssigningDataSource_NumberOfRowsShoulMatchTheData() {
         //Assign
-        notesList.notes = ["Albemarle", "Brandywine", "Chesapeake", "Ben", "Ivy", "Jordell", "Liam", "Maxime", "Shakia", "William", "periwinkle", "rose", "moss"]
+        notesList.notes = []
         
         //Act
         notesList.loadViewIfNeeded()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iua-AQ-mVI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WTc-Ho-lYX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TakeNote-->
+        <!--Notes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="NotesListViewController" id="BYZ-38-t0r" customClass="NotesListViewController" customModule="TakeNote" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,7 +110,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="TakeNote" id="Z0U-IW-nDJ">
+                    <navigationItem key="navigationItem" title="Notes" id="Z0U-IW-nDJ">
                         <barButtonItem key="rightBarButtonItem" title="Select" id="fvA-Ca-z2U">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
@@ -129,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1394" y="-121"/>
+            <point key="canvasLocation" x="2302.898550724638" y="-121.20535714285714"/>
         </scene>
         <!--Note View Controller-->
         <scene sceneID="chG-AJ-au5">
@@ -181,25 +181,112 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sow-pc-fbl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2228.985507246377" y="0.0"/>
+            <point key="canvasLocation" x="3139.130434782609" y="0.0"/>
+        </scene>
+        <!--Category-->
+        <scene sceneID="wEP-ZI-FWn">
+            <objects>
+                <viewController title="Category" id="znN-tS-M0n" customClass="CategoryListViewController" customModule="TakeNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xNh-cD-UjO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aYb-0K-BE5">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="84" id="UU7-Iy-6xm" customClass="CategoryCell" customModule="TakeNote" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="84"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UU7-Iy-6xm" id="TnO-9O-Clq">
+                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="84"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRl-cx-T9O">
+                                                    <rect key="frame" x="20" y="11" width="357.5" height="62"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="HRl-cx-T9O" secondAttribute="bottom" id="OlV-kn-d6y"/>
+                                                <constraint firstItem="HRl-cx-T9O" firstAttribute="top" secondItem="TnO-9O-Clq" secondAttribute="topMargin" id="eq6-6c-iOH"/>
+                                                <constraint firstItem="HRl-cx-T9O" firstAttribute="leading" secondItem="TnO-9O-Clq" secondAttribute="leadingMargin" id="h5E-OX-ghi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="HRl-cx-T9O" secondAttribute="trailing" id="tl8-Wt-E4J"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="category" destination="HRl-cx-T9O" id="vO1-uR-cMm"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="znN-tS-M0n" id="ifp-cl-j6h"/>
+                                    <outlet property="delegate" destination="znN-tS-M0n" id="MLV-9p-06I"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2W7-o4-d0S">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <items>
+                                    <barButtonItem title="No of rows" width="396" id="DGz-4I-eYW"/>
+                                    <barButtonItem title="AddNote" image="plus" catalog="system" width="98.5" id="1wD-ws-SeR">
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <connections>
+                                            <action selector="addNoteTapped:" destination="znN-tS-M0n" id="JPx-Hy-wVu"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" systemColor="systemBackgroundColor"/>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hA2-NZ-RbI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2W7-o4-d0S" firstAttribute="leading" secondItem="hA2-NZ-RbI" secondAttribute="leading" id="0rk-de-AON"/>
+                            <constraint firstItem="2W7-o4-d0S" firstAttribute="top" secondItem="aYb-0K-BE5" secondAttribute="bottom" id="NBr-4k-m6v"/>
+                            <constraint firstItem="aYb-0K-BE5" firstAttribute="top" secondItem="hA2-NZ-RbI" secondAttribute="top" id="NtP-1N-Ift"/>
+                            <constraint firstItem="aYb-0K-BE5" firstAttribute="leading" secondItem="hA2-NZ-RbI" secondAttribute="leading" id="Sgy-mF-9ad"/>
+                            <constraint firstItem="hA2-NZ-RbI" firstAttribute="trailing" secondItem="aYb-0K-BE5" secondAttribute="trailing" id="T3w-XE-G8a"/>
+                            <constraint firstItem="hA2-NZ-RbI" firstAttribute="bottom" secondItem="2W7-o4-d0S" secondAttribute="bottom" id="hrW-uc-GeH"/>
+                            <constraint firstItem="2W7-o4-d0S" firstAttribute="trailing" secondItem="hA2-NZ-RbI" secondAttribute="trailing" id="pQw-Fh-GKZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="TakeNote" id="8Vy-hQ-917">
+                        <barButtonItem key="rightBarButtonItem" title="Select" id="uD7-hY-eFH">
+                            <connections>
+                                <action selector="selectTapped:" destination="znN-tS-M0n" id="XIa-R9-r4w"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="categoriesTable" destination="aYb-0K-BE5" id="TgI-Bn-tEf"/>
+                        <outlet property="numberOfCategories" destination="DGz-4I-eYW" id="abx-K9-Sdv"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="bku-3W-eS3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XlJ-Pv-nHD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1376.8115942028987" y="-25.446428571428569"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="9ZG-Vv-M3H">
+        <scene sceneID="rdN-Y3-1KY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iua-AQ-mVI" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WTc-Ho-lYX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bMi-8e-fmA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="doc-Og-2JG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="pVg-BW-IVZ"/>
+                        <segue destination="znN-tS-M0n" kind="relationship" relationship="rootViewController" id="qqF-L4-0GK"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6YG-Tv-gxY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZZu-Pl-1II" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="298.55072463768118" y="0.6696428571428571"/>
+            <point key="canvasLocation" x="466.66666666666669" y="-25.446428571428569"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

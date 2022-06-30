@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		376B64AC28659D37006B1447 /* NotesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376B64AB28659D37006B1447 /* NotesListViewModel.swift */; };
 		376ECAFB286852C500D760FD /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ECAFA286852C500D760FD /* NoteViewModel.swift */; };
+		376F0D8A286D7CF20007A07C /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F0D89286D7CF20007A07C /* CategoryListViewController.swift */; };
+		376F0D8C286D7DFD0007A07C /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F0D8B286D7DFD0007A07C /* CategoryListViewModel.swift */; };
+		376F0D8E286D7ED60007A07C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F0D8D286D7ED60007A07C /* CategoryCell.swift */; };
 		3774E24D2866DBB700B4E564 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3774E24C2866DBB700B4E564 /* NoteViewController.swift */; };
 		378294D22864AB2800F55904 /* NotesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378294D12864AB2800F55904 /* NotesListCell.swift */; };
 		379C1FC928647BB200E8CF37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C1FC828647BB200E8CF37 /* AppDelegate.swift */; };
@@ -42,6 +45,9 @@
 /* Begin PBXFileReference section */
 		376B64AB28659D37006B1447 /* NotesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewModel.swift; sourceTree = "<group>"; };
 		376ECAFA286852C500D760FD /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
+		376F0D89286D7CF20007A07C /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
+		376F0D8B286D7DFD0007A07C /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
+		376F0D8D286D7ED60007A07C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		3774E24C2866DBB700B4E564 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		378294D12864AB2800F55904 /* NotesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListCell.swift; sourceTree = "<group>"; };
 		379C1FC528647BB200E8CF37 /* TakeNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,8 +125,10 @@
 			children = (
 				379C1FC828647BB200E8CF37 /* AppDelegate.swift */,
 				378294D32864AC6900F55904 /* Note List */,
-				3774E24C2866DBB700B4E564 /* NoteViewController.swift */,
-				376ECAFA286852C500D760FD /* NoteViewModel.swift */,
+				379F982F286D6EE2004CAFA7 /* Note */,
+				376F0D89286D7CF20007A07C /* CategoryListViewController.swift */,
+				376F0D8B286D7DFD0007A07C /* CategoryListViewModel.swift */,
+				376F0D8D286D7ED60007A07C /* CategoryCell.swift */,
 				379C1FCE28647BB200E8CF37 /* Main.storyboard */,
 				379C1FD428647BB400E8CF37 /* Assets.xcassets */,
 				379C1FD628647BB400E8CF37 /* LaunchScreen.storyboard */,
@@ -145,6 +153,15 @@
 				379C1FEE28647BB400E8CF37 /* TakeNoteUITestsLaunchTests.swift */,
 			);
 			path = TakeNoteUITests;
+			sourceTree = "<group>";
+		};
+		379F982F286D6EE2004CAFA7 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				3774E24C2866DBB700B4E564 /* NoteViewController.swift */,
+				376ECAFA286852C500D760FD /* NoteViewModel.swift */,
+			);
+			path = Note;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				376F0D8A286D7CF20007A07C /* CategoryListViewController.swift in Sources */,
 				376ECAFB286852C500D760FD /* NoteViewModel.swift in Sources */,
 				376B64AC28659D37006B1447 /* NotesListViewModel.swift in Sources */,
 				379C1FD328647BB200E8CF37 /* TakeNote.xcdatamodeld in Sources */,
@@ -285,6 +303,8 @@
 				379C1FCD28647BB200E8CF37 /* NotesListViewController.swift in Sources */,
 				3774E24D2866DBB700B4E564 /* NoteViewController.swift in Sources */,
 				379C1FC928647BB200E8CF37 /* AppDelegate.swift in Sources */,
+				376F0D8C286D7DFD0007A07C /* CategoryListViewModel.swift in Sources */,
+				376F0D8E286D7ED60007A07C /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
