@@ -15,10 +15,9 @@ class NoteViewController: UIViewController {
     var note: Note!
     var noteVM = NoteViewModel()
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.noteTitle.text = self.note.noteTitle
+        self.noteDescription.text = self.note.noteDescription
     }
     
     @IBAction func doneTapped(_ sender: UIBarButtonItem) {

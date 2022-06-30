@@ -57,7 +57,6 @@ class NotesListViewController: UIViewController {
         if segue.identifier == "NewNote" {
             destinationVC.note = Note(context: notesListVM.context)
         } else if segue.identifier == "UpdateNote" {
-            destinationVC.note = Note(context: notesListVM.context)
             destinationVC.note = self.selectedNotes[0]
             self.selectedNotes = [Note]()
         }
@@ -74,7 +73,7 @@ extension NotesListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        60
+        50
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
