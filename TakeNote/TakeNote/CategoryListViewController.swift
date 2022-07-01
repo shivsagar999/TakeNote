@@ -10,6 +10,7 @@ import UIKit
 class CategoryListViewController: UIViewController {
     
     
+    @IBOutlet weak var selectButton: UIBarButtonItem!
     @IBOutlet weak var numberOfCategories: UIBarButtonItem!
     
     @IBOutlet weak var categoriesTable: UITableView!
@@ -24,13 +25,18 @@ class CategoryListViewController: UIViewController {
         super.viewDidLoad()
         setUpAlert()
         categories = categoryListVM.getCategories()
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        reloadTableView()
     }
     
     func reloadTableView() {
             self.categories = self.categoryListVM.getCategories()
             self.categoriesTable.reloadData()
-            //self.numberOfNotes.title = "\t    \(self.notes.count) Notes"
+            self.numberOfCategories.title = "\t    \(self.categories.count) Notes"
        
     }
     
@@ -42,6 +48,7 @@ class CategoryListViewController: UIViewController {
                 self.categoryListVM.saveData()
                 self.reloadTableView()
             }
+            self.alertTextField.text = ""
         }
         self.categoryAlert.addTextField { textField in
             self.alertTextField = textField
@@ -74,6 +81,12 @@ class CategoryListViewController: UIViewController {
         self.reloadTableView()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! NotesListViewController
+        destinationVC.category = self.selectedCategories[0]
+        self.selectedCategories = [Category]()
+    }
+    
 }
 
 // MARK: - Tableview
@@ -90,5 +103,11 @@ extension CategoryListViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedCategories.append(categories[indexPath.row])
+        if self.selectButton.title == "Select" {
+            performSegue(withIdentifier: "ToNotes", sender: self)
+        }
+    }
     
 }

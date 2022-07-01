@@ -9,17 +9,17 @@ import UIKit
 
 class NotesListViewController: UIViewController {
 
+    var category: Category! = nil
     @IBOutlet weak var notesTable: UITableView!
     @IBOutlet weak var selectButton: UIBarButtonItem!
     @IBOutlet weak var numberOfNotes: UIBarButtonItem!
-    let notesListVM = NotesListViewModel()
+    var notesListVM: NotesListViewModel! = nil
     var notes: [Note] = [Note]()
     var selectedNotes: [Note] = [Note]()
     
-//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        notesListVM = NotesListViewModel(category: self.category)
         notes = notesListVM.getNotes()
         // Space is given to place title in the middle of the screen
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -58,8 +58,10 @@ class NotesListViewController: UIViewController {
         let destinationVC = segue.destination as! NoteViewController
         if segue.identifier == "NewNote" {
             destinationVC.note = Note(context: notesListVM.context)
+            destinationVC.category = self.category
         } else if segue.identifier == "UpdateNote" {
             destinationVC.note = self.selectedNotes[0]
+            destinationVC.category = self.category
             self.selectedNotes = [Note]()
         }
     }

@@ -13,13 +13,16 @@ class NotesListViewModel {
     
     var notes: [Note] = [Note]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    init() {
-        fetchNotes()
+    let category: Category!
+    init(category: Category) {
+        self.category = category
+        fetchNotes(category: self.category)
     }
     
-    func fetchNotes() {
+    func fetchNotes(category: Category) {
         let fetchrequest: NSFetchRequest<Note> = Note.fetchRequest()
+        
+        fetchrequest.predicate = NSPredicate(format: "parentCategory.name MATCHEs %@", category.name!)
         do {
             notes = try context.fetch(fetchrequest)
         } catch {
@@ -28,7 +31,7 @@ class NotesListViewModel {
     }
     
     func getNotes() -> [Note] {
-        fetchNotes()
+        fetchNotes(category: self.category)
         return notes
     }
     
@@ -41,7 +44,6 @@ class NotesListViewModel {
             context.delete(note)
             saveData()
         }
-        
     }
     
     func saveData() {

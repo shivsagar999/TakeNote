@@ -168,6 +168,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="fPm-gG-eGO">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="gdq-Vo-RVQ">
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="doneTapped:" destination="hzh-iZ-jqu" id="KSz-IL-zUZ"/>
                             </connections>
@@ -238,6 +239,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <color key="barTintColor" systemColor="systemBackgroundColor"/>
                             </toolbar>
                         </subviews>
@@ -255,6 +257,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="TakeNote" id="8Vy-hQ-917">
                         <barButtonItem key="rightBarButtonItem" title="Select" id="uD7-hY-eFH">
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="selectTapped:" destination="znN-tS-M0n" id="XIa-R9-r4w"/>
                             </connections>
@@ -263,7 +266,8 @@
                     <connections>
                         <outlet property="categoriesTable" destination="aYb-0K-BE5" id="TgI-Bn-tEf"/>
                         <outlet property="numberOfCategories" destination="DGz-4I-eYW" id="abx-K9-Sdv"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="bku-3W-eS3"/>
+                        <outlet property="selectButton" destination="uD7-hY-eFH" id="2Q5-RQ-MbM"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ToNotes" id="bku-3W-eS3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XlJ-Pv-nHD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

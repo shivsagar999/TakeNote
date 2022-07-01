@@ -12,7 +12,7 @@ import UIKit
 class CategoryListViewModel {
     
     var categories = [Category]()
-    
+    var notes = [Note]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     init() {
@@ -28,7 +28,26 @@ class CategoryListViewModel {
         }
     }
     
+    func fetchNotes(category: Category) {
+        let fetchrequest: NSFetchRequest<Note> = Note.fetchRequest()
+        
+        fetchrequest.predicate = NSPredicate(format: "parentCategory.name MATCHEs %@", category.name!)
+        do {
+            notes = try context.fetch(fetchrequest)
+        } catch {
+            print("Encountered error while fetching \(error)")
+        }
+    }
+    
+    func deleteNotes() {
+        for note in notes {
+            self.context.delete(note)
+            saveData()
+        }
+    }
+    
     func getCategories() -> [Category] {
+        self.fetchCategories()
         return self.categories
     }
     
@@ -39,6 +58,8 @@ class CategoryListViewModel {
     func deleteCategories(categories: [Category]) {
         for category in categories {
             self.context.delete(category)
+            self.fetchNotes(category: category)
+            self.deleteNotes()
             saveData()
         }
     }

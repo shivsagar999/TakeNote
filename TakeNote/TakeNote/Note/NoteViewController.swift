@@ -12,6 +12,7 @@ class NoteViewController: UIViewController {
     @IBOutlet weak var noteTitle: UITextField!
     @IBOutlet weak var noteDescription: UITextView!
     
+    var category: Category! = nil
     var note: Note!
     var noteVM = NoteViewModel()
     override func viewDidLoad() {
@@ -27,6 +28,7 @@ class NoteViewController: UIViewController {
             self.note.noteTitle = noteTitle.text
             self.note.noteDescription = noteDescription.text
             self.note.date = Date()
+            self.note.parentCategory = self.category
             noteVM.saveNote(note: note)
         }
         navigationController?.popViewController(animated: true)
